@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des démarches - Admin-Easy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #b71c1c;
+        }
+        section {
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #d32f2f;
+            color: white;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #d32f2f;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin-Easy</h1>
+        <p>Bienvenue sur votre espace de suivi</p>
+        <nav>
+            <ul>
+                <li><a href="acceuil.html">Accueil</a></li>
+                <li><a href="formulaire.html">Formulaire</a></li>
+                <li><a href="suivi.html">Suivi des démarches</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+                <li><a href="paiement.html">Paiement de factures</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Suivi de votre demande</h2>
+        <table id="suivi-table">
+            <tr>
+                <th>Type de démarche</th>
+                <th>Statut</th>
+            </tr>
+            <tr>
+                <td>Carte d’identité</td>
+                <td id="statut">En cours...</td>
+            </tr>
+        </table>
+        <button onclick="changerStatut()">Mettre à jour</button>
+    </section>
+
+    <script>
+        function changerStatut() {
+            const statut = document.getElementById("statut");
+            if (statut.textContent === "En cours...") {
+                statut.textContent = "Terminé";
+                showNotification("Le statut de votre demande a été mis à jour.");
+            } else {
+                statut.textContent = "En cours...";
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement("div");
+            notification.classList.add("notification");
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

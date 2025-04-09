@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+        .header img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 5px solid #d32f2f;
+        }
+        h1 {
+            font-size: 42px;
+            margin: 20px 0;
+            color: #333;
+            font-weight: 700;
+        }
+        .welcome {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .menu a {
+            display: inline-block;
+            width: 250px;
+            padding: 15px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 25px;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .menu a:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 16px;
+            color: #666;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="admin.png" alt="Bannière">
+    </div>
+    <h1>Easy Admin</h1>
+    <p class="welcome">Bienvenue sur votre espace administratif</p>
+    <div class="menu">
+        <a href="acceuil.html">Accueil</a>
+        <a href="formulaire.html">Formulaire</a>
+        <a href="suivi.html">Suivi des démarches</a>
+        <a href="chatbot.html">Chatbot</a>
+        <a href="paiement.html">paiement de factures</a>
+    </div>
+    <div class="footer">
+        &copy; 2025 Easy Admin. Tous droits réservés.
+    </div>
+</body>
+</html>

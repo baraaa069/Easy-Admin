@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot - Admin-Easy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #b71c1c;
+        }
+        section {
+            margin: 30px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 12px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+        #reponse {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+        .chatbot-message {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .user-message {
+            background-color: #d32f2f;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin-Easy</h1>
+        <nav>
+            <ul>
+                <li><a href="acceuil.html">Accueil</a></li>
+                <li><a href="formulaire.html">Formulaire</a></li>
+                <li><a href="suivi.html">Suivi des démarches</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+               </li><a href="paiement.html">paiement de factures</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Chatbot d’assistance</h2>
+        <input type="text" id="userInput" placeholder="Posez une question...">
+        <button onclick="repondre()">Envoyer</button>
+        <div id="reponse"></div>
+    </section>
+
+    <script>
+        function repondre() {
+            // Récupère ce que l'utilisateur a tapé
+            const userInput = document.getElementById("userInput").value.toLowerCase();
+            // Récupère l'endroit où afficher la réponse
+            const reponse = document.getElementById("reponse");
+
+            let message = "";
+
+            // Vérifie ce que l'utilisateur a demandé
+            if (userInput.includes("passeport")) {
+                message = `
+                    <div class="chatbot-message">
+                        Pour faire une demande de passeport, voici ce dont vous avez besoin :
+                        <ul>
+                            <li>Pièce d'identité valide.</li>
+                            <li>Justificatif de domicile.</li>
+                            <li>Photo d'identité récente.</li>
+                            <li>Timbre fiscal.</li>
+                        </ul>
+                        Étapes à suivre :
+                        <ol>
+                            <li>Prenez rendez-vous en ligne.</li>
+                            <li>Remplissez le formulaire de demande.</li>
+                            <li>Présentez-vous au rendez-vous avec les documents requis.</li>
+                        </ol>
+                    </div>
+                `;
+            } else if (userInput.includes("carte d'identité") || userInput.includes("cni")) {
+                message = `
+                    <div class="chatbot-message">
+                        Pour faire une demande de carte d'identité, voici ce dont vous avez besoin :
+                        <ul>
+                            <li>Ancienne carte d'identité (si vous en avez une).</li>
+                            <li>Justificatif de domicile.</li>
+                            <li>Photo d'identité récente.</li>
+                        </ul>
+                        Étapes à suivre :
+                        <ol>
+                            <li>Rendez-vous à la mairie avec les documents requis.</li>
+                            <li>Remplissez le formulaire de demande.</li>
+                            <li>Payez les frais (si applicable).</li>
+                        </ol>
+                    </div>
+                `;
+            } else if (userInput.includes("permis")) {
+                message = `
+                    <div class="chatbot-message">
+                        Pour faire une demande de permis de conduire, voici ce dont vous avez besoin :
+                        <ul>
+                            <li>Pièce d'identité valide.</li>
+                            <li>Justificatif de domicile.</li>
+                            <li>Photo d'identité récente.</li>
+                            <li>Certificat de réussite à l'examen.</li>
+                        </ul>
+                        Étapes à suivre :
+                        <ol>
+                            <li>Remplissez le formulaire de demande en ligne.</li>
+                            <li>Envoyez les documents requis.</li>
+                            <li>Payez les frais.</li>
+                        </ol>
+                    </div>
+                `;
+            } else {
+                message = `
+                    <div class="chatbot-message">
+                        Je ne comprends pas votre demande. Voici quelques exemples de questions que je peux traiter :
+                        <ul>
+                            <li>Quels documents faut-il pour un passeport ?</li>
+                            <li>Comment faire une demande de carte d'identité ?</li>
+                            <li>Quelles sont les étapes pour obtenir un permis de conduire ?</li>
+                        </ul>
+                    </div>
+                `
+            }
+
+            // Affiche la réponse dans la section "reponse"
+            reponse.innerHTML += `
+                <div class="user-message">${userInput}</div>
+                ${message}
+            `;
+
+            // Efface le champ de saisie après avoir envoyé la question
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>
